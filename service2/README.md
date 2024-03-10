@@ -84,14 +84,6 @@ You should see a response similar to:
 {"service": "service2", "region": "your-primary-region"}
 ```
 
-You can failover service 2 from the primary to the secondary region using Route53 ARC
-> Notes: Service 2 have its own Route 53 ARC control pannel. To manage [routing controls](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html), you need to use its specific control panels. You can check the [route53 stack](./route53/README.md) outputs to see the details for the service 2 control panel.
-
-After 1 or 2 minutes, you should see responses to service 2 custom domain endpoint (i.e https://service2.mydomain.com) being serverd from the secondary region:
-```json
-{"service": "service2", "region": "your-secondary-region"}
-```
-
 ## Cleanup
  
 1. Delete the stack on the primary region.
