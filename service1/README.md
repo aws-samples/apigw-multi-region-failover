@@ -1,4 +1,4 @@
-# Serverless patterns - Multi-Region REST API Failover: Service 1
+# Amazon API Gateway Multi-Region Public REST API Failover: Service 1
 
 Service1 consists of a regional rest API with a single root path calling a Lambda function.
 

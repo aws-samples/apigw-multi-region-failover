@@ -1,4 +1,4 @@
-# Serverless patterns - Multi-Region REST API Failover: Route 53 ARC Infrastructure
+# Amazon API Gateway Multi-Region Public REST API Failover: Route 53 ARC Infrastructure
 
 This pattern creates a Route 53 ARC cluster and one control panel per api to be used during the failover process.
 
@@ -15,13 +15,9 @@ Important: this application uses various AWS services and there are costs associ
 
 ## Deployment Instructions
 
-1. Create a new directory, navigate to that directory in a terminal and clone the GitHub repository:
-    ``` 
-    git clone https://github.com/aws-samples/serverless-patterns
+1. Change directory to the route53 stack:
     ```
-1. Change directory to the pattern directory:
-    ```
-    cd aws-apigw-multi-region/route53
+    cd apigw-multi-region-failover/route53
     ```
 1. From the command line, use AWS SAM to deploy the AWS resources for the pattern as specified in the template.yml file:
     ```
