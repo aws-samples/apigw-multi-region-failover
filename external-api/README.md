@@ -1,40 +1,27 @@
-# Serverless patterns - Multi-Region REST API Failover: External API
+# Amazon API Gateway Multi-Region Public REST API Failover: External API
 
 Service1 consists of a regional rest API with a single root path calling a Lambda function.
 
-This pattern deploys service1 on a primary and secondaty region. It will also setup Route53 public failover records and Route 53 ARC routing controls for you.
+This stack deploys service1 on a primary and secondaty region. It will also setup Route53 public failover records and Route 53 ARC routing controls for you.
 
 Learn more about this pattern at Serverless Land Patterns: << Add the live URL here >>
 
-Important: this application uses various AWS services and there are costs associated with these services after the Free Tier usage - please see the [AWS Pricing page](https://aws.amazon.com/pricing/) for details. You are responsible for any AWS costs incurred. No warranty is implied in this example.
-
-## Requirements
-
-* [Create an AWS account](https://portal.aws.amazon.com/gp/aws/developer/registration/index.html) if you do not already have one and log in. The IAM user that you use must have sufficient permissions to make necessary AWS service calls and manage AWS resources.
-* [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) installed and configured
-* [Git Installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* [AWS Serverless Application Model](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html) (AWS SAM) installed
-
 ## Deployment Instructions
 
-1. Create a new directory, navigate to that directory in a terminal and clone the GitHub repository:
-    ``` 
-    git clone https://github.com/aws-samples/serverless-patterns
+1. Change directory to:
     ```
-1. Change directory to the pattern directory:
+    cd apigw-multi-region-failover/service1
     ```
-    cd aws-apigw-multi-region/service1
-    ```
-1. From the command line, use AWS SAM to deploy the AWS resources for the pattern as specified in the template.yml file on the primary region:
+1. From the command line, use AWS SAM to deploy the AWS resources for the stack as specified in the template.yml file on the primary region:
     ```
     sam deploy --guided --config-env primary
     ```
 1. During the prompts:
     * **Stack Name:** Enter a stack name.
-    * **AWS Region:** Enter the desired AWS Region. This pattern has been tested with both us-east-1 and us-east-2.
+    * **AWS Region:** Enter the desired AWS Region. This stack has been tested with both us-east-1 and us-east-2.
     * **PublicHostedZoneId:** You must have a public hosted zone in Route 53 with your domain name (i.e. mydomain.com). Enter the Hosted Zone Id for this hosted zone.
     * **DomainName:** Enter your custom domain name (i.e. externalapi.mydomain.com).
-    * **CertificateArn** You must have a ACM Certificate that covers your Custom Domain namespace (i.e. *.mydomain.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
+    * **CertificateArn** You must have an ACM certificate that covers your custom domain namespace (i.e. *.mydomain.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
     * **Route53ArcClusterArn:** Before deploy this stack, you should deploy the Route 53 infrastructure. Add here the Route 53 Cluster Arn created during that deployment.
     * **ExternalApiControlPanelArn**: Before deploy this stack, you should deploy the Route 53 infrastructure. Add here the  Route 53 ARC control pane Arn for service 1.
     * **Service1HttpsEndpoint**: The https endpoint for service1 (https://service1.mydomain.com).
@@ -47,16 +34,16 @@ Important: this application uses various AWS services and there are costs associ
 
     Once you have run `sam deploy --guided --config-env primary` mode once and saved arguments to a configuration file (samconfig.toml), you can use `sam deploy --config-env primary` in future to use these defaults.
 
-1. From the command line, use AWS SAM to deploy the AWS resources for the pattern as specified in the template.yml file on the primary region:
+1. From the command line, use AWS SAM to deploy the AWS resources for the stack as specified in the template.yml file on the primary region:
     ```
     sam deploy --guided --config-env secondary
     ```
 1. During the prompts:
     * **Stack Name:** Enter a stack name.
-    * **AWS Region:** Enter the desired AWS Region. This pattern has been tested with both us-east-1 and us-east-2. **Make sure to use a different region from the prymary one**.
+    * **AWS Region:** Enter the desired AWS Region. This stack has been tested with both us-east-1 and us-east-2. **Make sure to use a different region from the prymary one**.
     * **PublicHostedZoneId:** You must have a public hosted zone in Route 53 with your domain name (i.e. mydomain.com). Enter the Hosted Zone Id for this hosted zone.
     * **DomainName:** Enter your custom domain name (i.e. externalapi.mydomain.com).
-    * **CertificateArn** You must have a ACM Certificate that covers your Custom Domain namespace (i.e. *.mydomain.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
+    * **CertificateArn** You must have an ACM certificate that covers your custom domain namespace (i.e. *.mydomain.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
     * Route53ArcClusterArn: Before deploy this stack, you should deploy the Route 53 infrastructure. Add here the Route 53 Cluster Arn created during that deployment.
     * **Service1ControlPlaneArn**: Before deploy this stack, you should deploy the Route 53 infrastructure. Add here the  Route 53 ARC control pane Arn for service 1.
     * **Stage:** Enter the name of the stage within your API Gateway that you would like to map to your custom domain name.
@@ -67,7 +54,7 @@ Important: this application uses various AWS services and there are costs associ
 
     Once you have run `sam deploy --guided --config-env secondary` mode once and saved arguments to a configuration file (samconfig.toml), you can use `sam deploy --config-env secondary` in future to use these defaults.
     
-1. Note the outputs from the SAM deployment process. These contain the resource names and/or ARNs which are used for testing.
+1. Note the outputs from the SAM deployment process. These contain details which are used for testing.
 
 ## How it works
 
