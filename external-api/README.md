@@ -4,8 +4,6 @@ Service1 consists of a regional rest API with a single root path calling a Lambd
 
 This stack deploys service1 on a primary and secondaty region. It will also setup Route53 public failover records and Route 53 ARC routing controls for you.
 
-Learn more about this pattern at Serverless Land Patterns: << Add the live URL here >>
-
 ## Deployment Instructions
 
 1. Change directory to:
@@ -18,7 +16,7 @@ Learn more about this pattern at Serverless Land Patterns: << Add the live URL h
     ```
 1. During the prompts:
     * **Stack Name:** Enter a stack name.
-    * **AWS Region:** Enter the desired AWS Region. This stack has been tested with both us-east-1 and us-east-2.
+    * **AWS Region:** Enter the desired primary AWS Region. This stack has been tested with both us-east-1 and us-east-2.
     * **PublicHostedZoneId:** You must have a public hosted zone in Route 53 with your domain name (i.e. mydomain.com). Enter the Hosted Zone Id for this hosted zone.
     * **DomainName:** Enter your custom domain name (i.e. externalapi.mydomain.com).
     * **CertificateArn** You must have an ACM certificate that covers your custom domain namespace (i.e. *.mydomain.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
@@ -40,7 +38,7 @@ Learn more about this pattern at Serverless Land Patterns: << Add the live URL h
     ```
 1. During the prompts:
     * **Stack Name:** Enter a stack name.
-    * **AWS Region:** Enter the desired AWS Region. This stack has been tested with both us-east-1 and us-east-2. **Make sure to use a different region from the prymary one**.
+    * **AWS Region:** Enter the desired secondary AWS Region. This stack has been tested with both us-east-1 and us-east-2. **Make sure to use a different region from the prymary one**.
     * **PublicHostedZoneId:** You must have a public hosted zone in Route 53 with your domain name (i.e. mydomain.com). Enter the Hosted Zone Id for this hosted zone.
     * **DomainName:** Enter your custom domain name (i.e. externalapi.mydomain.com).
     * **CertificateArn** You must have an ACM certificate that covers your custom domain namespace (i.e. *.mydomain.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.

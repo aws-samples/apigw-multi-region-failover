@@ -17,7 +17,7 @@ This stack deploys service2 on a primary and secondaty region. It will also setu
     ```
 1. During the prompts:
     * **Stack Name:** Enter a stack name.
-    * **AWS Region:** Enter the desired AWS Region. This stack has been tested with both us-east-1 and us-east-2.
+    * **AWS Region:** Enter the desired primary AWS Region. This stack has been tested with both us-east-1 and us-east-2.
     * **PublicHostedZoneId:** You must have a public hosted zone in Route 53 with your domain name (i.e. mydomain.com). Enter the Hosted Zone Id for this hosted zone.
     * **DomainName:** Enter your custom domain name (i.e. service2.mydomain.com).
     * **CertificateArn** You must have an ACM certificate that covers your custom domain namespace (i.e. *.mydomain.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
@@ -37,7 +37,7 @@ This stack deploys service2 on a primary and secondaty region. It will also setu
     ```
 1. During the prompts:
     * **Stack Name:** Enter a stack name.
-    * **AWS Region:** Enter the desired AWS Region. This stack has been tested with both us-east-1 and us-east-2. **Make sure to use a different region from the prymary one**.
+    * **AWS Region:** Enter the desired secondary AWS Region. This stack has been tested with both us-east-1 and us-east-2. **Make sure to use a different region from the prymary one**.
     * **PublicHostedZoneId:** You must have a public hosted zone in Route 53 with your domain name (i.e. mydomain.com). Enter the Hosted Zone Id for this hosted zone.
     * **DomainName:** Enter your custom domain name (i.e. service2.mydomain.com).
     * **CertificateArn** You must have an ACM certificate that covers your custom domain namespace (i.e. *.mydomain.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
