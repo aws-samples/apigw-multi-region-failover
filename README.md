@@ -2,9 +2,14 @@
 
 Companies often have multiple teams managing different services behind a shared public API. In disaster recovery scenarios, each team needs the ability to fail over their services independently.
 
-This demo demonstrates an Amazon API Gateway multi-region active-passive public API that proxies two independent multi-region active-passive service APIs. The primary and secondary regions can be configured independently for the external API and each service. This allows you to fail over the external API and each service independently as needed for disaster recovery.
+This demo demonstrates an Amazon API Gateway multi-region active-passive public API that proxies two independent multi-region active-passive service APIs. The primary and secondary regions can be configured independently for the external API and each service. 
 
 ![alt text](images/diagram.jpg)
+
+This allows you to fail over the external API and each service independently as needed for disaster recovery.
+
+![alt text](images/routing-controls.jpg)
+
 
 Learn more about this pattern at Serverless Land: https://serverlessland.com/repos/apigw-multi-region-failover
 
@@ -12,8 +17,8 @@ Important: this application uses various AWS services and there are costs associ
 
 ## Deployment Instructions
 Before deploying this application you will need the following:
-* A public domain (mydomain.com) registered with Amazon Route 53. More details [here](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar.html)
-* An AWS Certificate Manager (ACM) certificate (*.mydomain.com) for your domain name **on both primary and secondary regions** you plan to deploy your APIs on. More details [here](https://docs.aws.amazon.com/acm/latest/userguide/gs.html)
+* A public domain (example.com) registered with Amazon Route 53. More details [here](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar.html)
+* An AWS Certificate Manager (ACM) certificate (*.example.com) for your domain name **on both primary and secondary regions** you plan to deploy your APIs on. More details [here](https://docs.aws.amazon.com/acm/latest/userguide/gs.html)
 
 
 Then follow the following steps, in this exact order:
@@ -29,7 +34,7 @@ Then follow the following steps, in this exact order:
 
 ## How it works
 
-You will deploy 3 applications (external api, service2 and service 2) in two separate regions. The external api (i.e. https://externalapi.mydomain.com) is your entry point to access service 1  (i.e. https://externalapi.mydomain.com/service1) and service 2  (i.e. https://externalapi.mydomain.com/service2). The external api uses public HTTP endpoint integrations (/service1 and /service2) to access service 1 and service 2.
+You will deploy 3 applications (external api, service2 and service 2) in two separate regions. The external api (i.e. https://externalapi.example.com) is your entry point to access service 1  (i.e. https://externalapi.example.com/service1) and service 2  (i.e. https://externalapi.example.com/service2). The external api uses public HTTP endpoint integrations (/service1 and /service2) to access service 1 and service 2.
 
 If an issue with the primary region occurs, you can user Amazon Route53 ARC to route traffic to the secondary region. You can failover each application (external api, service1 and service2) independently.
 
