@@ -17,9 +17,9 @@ This stack deploys service1 on a primary and secondaty region. It will also setu
 1. During the prompts:
     * **Stack Name:** Enter a stack name.
     * **AWS Region:** Enter the desired primary AWS Region. This stack has been tested with both us-east-1 and us-east-2.
-    * **PublicHostedZoneId:** You must have a public hosted zone in Route 53 with your domain name (i.e. mydomain.com). Enter the Hosted Zone Id for this hosted zone.
-    * **DomainName:** Enter your custom domain name (i.e. service1.mydomain.com).
-    * **CertificateArn** You must have an ACM certificate that covers your custom domain namespace (i.e. *.mydomain.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
+    * **PublicHostedZoneId:** You must have a public hosted zone in Route 53 with your domain name (i.e. example.com). Enter the Hosted Zone Id for this hosted zone.
+    * **DomainName:** Enter your custom domain name (i.e. service1.example.com).
+    * **CertificateArn** You must have an ACM certificate that covers your custom domain namespace (i.e. *.example.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
     * **Route53ArcClusterArn:** Before deploy this stack, you should deploy the Route 53 infrastructure. Add here the Route 53 Cluster Arn created during that deployment.
     * **Service1ControlPlaneArn**: Before deploy this stack, you should deploy the Route 53 infrastructure. Add here the  Route 53 ARC control pane Arn for service 1.
     * **Stage:** Enter the name of the stage within your API Gateway that you would like to map to your custom domain name.
@@ -37,9 +37,9 @@ This stack deploys service1 on a primary and secondaty region. It will also setu
 1. During the prompts:
     * **Stack Name:** Enter a stack name.
     * **AWS Region:** Enter the desired secondary AWS Region. This stack has been tested with both us-east-1 and us-east-2. **Make sure to use a different region from the prymary one**.
-    * **PublicHostedZoneId:** You must have a public hosted zone in Route 53 with your domain name (i.e. mydomain.com). Enter the Hosted Zone Id for this hosted zone.
-    * **DomainName:** Enter your custom domain name (i.e. service1.mydomain.com).
-    * **CertificateArn** You must have an ACM certificate that covers your custom domain namespace (i.e. *.mydomain.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
+    * **PublicHostedZoneId:** You must have a public hosted zone in Route 53 with your domain name (i.e. example.com). Enter the Hosted Zone Id for this hosted zone.
+    * **DomainName:** Enter your custom domain name (i.e. service1.example.com).
+    * **CertificateArn** You must have an ACM certificate that covers your custom domain namespace (i.e. *.example.com) on the region your are deploying this stack. Enter the ARN for this certificate here. **Make sure you are getting the certificate arn for the right region**.
     * **Route53ArcClusterArn**: Before deploy this stack, you should deploy the Route 53 infrastructure. Add here the Route 53 Cluster Arn created during that deployment.
     * **Service1ControlPlaneArn**: Before deploy this stack, you should deploy the Route 53 infrastructure. Add here the  Route 53 ARC control pane Arn for service 1.
     * **Stage:** Enter the name of the stage within your API Gateway that you would like to map to your custom domain name.
@@ -75,7 +75,7 @@ Now test that one of your regional services is accessible via your custom fomain
 You can get that URL from the **CustomDomainNameEndpoint** output parameter.
 Eg: 
 ```bash
-curl https://service1.mydomain.com
+curl https://service1.example.com
 ```
 
 You should see a response similar to:
