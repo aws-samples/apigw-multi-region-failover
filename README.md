@@ -66,6 +66,11 @@ For example, on the test below, we initially had the external api and service 1 
 > Notes: Each service (external app, service1 and servce 2) have their own Amazon Route 53 ARC control pannel. To manage [routing controls](https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.html) for each service, you need to use their specific control panels. You can check the [route53 stack](./route53/README.md) outputs to see the details for each control panel.
 
 
+## Costs
+The estimated monthly cost of this solution is $1900/month. Please note this estimate is based on leveraging the free-tier for many of the services present in the solution and could vary based on consumption of the services.  Increased requests, AWS Lambda invocations and runtime, and number of DNS records and health checks used are all variables that could lead to a different monthly cost. 
+
+> Notes: The [AWS Pricing Calculator](https://calculator.aws/#/) can be used to help you provide a more accurate representation of the costs of deploying this in your environment. Additionally, pricing for Amazon Route 53 Application Recovery Controller can be found here: [ARC Pricing](https://aws.amazon.com/route53/pricing/#Pricing_components). 
+
 ## Cleanup
 
 Please follow the following steps, in this exact order.
