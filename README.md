@@ -1,5 +1,7 @@
 # Amazon API Gateway Multi-Region Public REST API Failover
 
+>Note: This repository is a companion demo for the blog post: [Implementing multi-Region failover for Amazon API Gateway](https://aws.amazon.com/blogs/compute/implementing-multi-region-failover-for-amazon-api-gateway/).
+
 Companies often have multiple teams managing different services behind a shared public API. In disaster recovery scenarios, each team needs the ability to fail over their services independently.
 
 This demo demonstrates an Amazon API Gateway multi-region active-passive public API that proxies two independent multi-region active-passive service APIs. The primary and secondary regions can be configured independently for the external API and each service. 
