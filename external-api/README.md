@@ -8,7 +8,7 @@ This stack deploys service1 on a primary and secondaty region. It will also setu
 
 1. Change directory to:
     ```
-    cd apigw-multi-region-failover/service1
+    cd apigw-multi-region-failover/external-api
     ```
 1. From the command line, use AWS SAM to deploy the AWS resources for the stack as specified in the template.yml file on the primary region:
     ```
