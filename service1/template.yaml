@@ -52,7 +52,7 @@ Resources:
           "service" : "service1",
           "region" : os.environ['AWS_REGION']}),
         }
-      Runtime: python3.9
+      Runtime: python3.13
       Events:
         HelloWorld:
           Type: Api 
